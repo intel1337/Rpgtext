@@ -1,0 +1,21 @@
+Face à vous ce trouve l’entré d’une grotte, humide, sombre, une odeur abominable s’en dégage. Vous allumez votre lampe torche et commencez à avancer.
+
+Rapidement vous tombez sur une intersection.
+
+Trois choix s’offre à vous :
+
+1. A gauche :
+Vous prenez le chemin de gauche, vous marchez, arpentez, explorez… les secondes vous paraisse longue…
+(add peur)
+
+Chaque pas semble duré une éternité…
+(add peur)
+
+Le bruit de chacun de vos pas résonne dans vos entrailles… 
+(add peur)
+
+L’idée de rebrousser chemin vous monte à la tête : 
+
+1.1 faire demi-tour ?
+
+1.2 continuer ? 
