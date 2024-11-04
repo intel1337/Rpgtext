@@ -8,4 +8,18 @@
 #include "save.c"
 #include "fastsleep.c"
 #include "anim.c"
+#include "queteread.c"
 
+int main(){
+    struct player
+    {
+        char* name;
+        int health;
+        int fear;
+        int body;
+        int golds;
+    };
+    load_quete();
+
+    return 0;
+}
