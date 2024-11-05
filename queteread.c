@@ -6,14 +6,14 @@ void load_quete() {
   
     FILE *file_ptr;
     char ch;
-    file_ptr = fopen("quete.txt", "r");
+    file_ptr = fopen("intro.txt", "r");
     if (NULL == file_ptr) {
         printf("Error opening file\n");
           exit(0);
     }
     while ((ch = fgetc(file_ptr)) != EOF) {
         printf("%c", ch);
-        sleep_ms(20);
+        sleep_ms(30);
         fflush(stdout);
     }
 

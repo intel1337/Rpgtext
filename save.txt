@@ -1,0 +1,5 @@
+name : test
+health :100
+fear :20
+body :0
+golds : 0
