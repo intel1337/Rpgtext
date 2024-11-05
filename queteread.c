@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-void load_quete() {
+void load_quete(char* fname) {
   
     FILE *file_ptr;
     char ch;
-    file_ptr = fopen("intro.txt", "r");
+    file_ptr = fopen(fname, "r");
     if (NULL == file_ptr) {
         printf("Error opening file\n");
           exit(0);

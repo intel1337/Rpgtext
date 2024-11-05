@@ -25,6 +25,12 @@ void menu(int health, int golds, char* name, int body, int fear){
     printf("[-%s-]\n", name);
     printf("|----------------------------------|\n");
     printf("Health : [");
+    if(health<35){
+        printf(RED);
+    }
+    else{
+        printf(GRN);
+    }
     while(i != health/10){
         printf("██");
         i++;
@@ -32,15 +38,17 @@ void menu(int health, int golds, char* name, int body, int fear){
     if(health/10 != 10){
         while(i != 10){
             printf("  ");
-            sleep_ms(30);
+            sleep_ms(10);
             fflush(stdout);
             i++;
         }
 
     }
+    printf(COLOR_RESET);
     printf("]\n");
     i = 0;
     printf("Fear   : [");
+    printf(MAG);
     while(i != fear/10){
         printf("██");
         i++;
@@ -48,12 +56,13 @@ void menu(int health, int golds, char* name, int body, int fear){
     if(fear/10 != 10){
         while(i != 10){
             printf("  ");
-            sleep_ms(30);
+            sleep_ms(10);
             fflush(stdout);
             i++;
         }
 
     }
+    printf(COLOR_RESET);
     printf("]\n");
     i = 0;
     printf("Bodies found : %d / 5\n", body);

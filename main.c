@@ -24,58 +24,109 @@
 #define CRESET "\e[0m"
 #define COLOR_RESET "\e[0m"
 
-
-int main(){
-    struct player
-    {
-        char* name;
-        int health;
-        int fear;
-        int body;
-        int golds;
-    };
-    char choice[2];
+void enterToContinue(){
+    printf(COLOR_RESET);
+    printf("> Appuyez Sur Entrée pour continuer...");
+    getchar();
+    fflush(stdout);
     system("clear");
-    printf(CYN);
-    load_quete();
+}
+
+void introduction(){
+    system("clear");
+    printf(RED);
+    load_quete("intro.txt");
     printf(WHT);
     printf("> Appuyez Sur Entrée pour continuer...");
     getchar();
     fflush(stdout);
     system("clear");
-    printf("Vous choisissez un surnom pour ce périple\n");
-    printf("> Votre Choix: ");
-    struct player player1;
-    fgets(player1.name, 20, stdin);
-    player1.name[strcspn(player1.name, "\n")] = 0;
+    printf(RED);
+    load_quete("intro2.txt");
+    printf("\n");
+    printf(WHT);
+    printf("> Appuyez Sur Entrée pour continuer...");
+    getchar();
+    fflush(stdout);
     system("clear");
-    printf("Trois lieux doivent être visité…\n");
-    printf("[%s>%s] 1 Les Profondeurs de la Forêt\n", RED, WHT);
-    printf("[%s>%s] 2 L'Asile\n", RED, WHT);
-    printf("[%s>%s] 3 Les Catacombes\n", RED, WHT);
-    printf("> Votre Choix :");
-    fgets(choice, 2, stdin);
-    choice[strcspn(choice, "\n")] = 0;
-    int input = atoi(choice);
-    
-    if(input == 1) {
-        player1.fear = 20;
-        player1.health = 100;
-        player1.body = 0;
-        player1.golds = 0;
-        save_score(player1.name, player1.health, player1.fear, player1.body, player1.golds);
-        menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
+}
 
+
+int main(){
+    while(1){
+        struct player
+        {
+            char* name;
+            int health;
+            int fear;
+            int body;
+            int golds;
+        };
+        char choice[2];
+        
+        introduction();
+        printf("Vous choisissez un surnom pour ce périple\n");
+        printf("> Votre Choix: ");
+        struct player player1;
+        fgets(player1.name, 20, stdin);
+        player1.name[strcspn(player1.name, "\n")] = 0;
+        system("clear");
+        printf("Trois lieux doivent être visité…\n");
+        printf("[%s>%s] 1 Les Profondeurs de la Forêt\n", RED, WHT);
+        printf("[%s>%s] 2 L'Asile\n", RED, WHT);
+        printf("[%s>%s] 3 Les Catacombes\n", RED, WHT);
+        printf("> Votre Choix :");
+
+        fgets(choice, 10, stdin);
+        choice[strcspn(choice, "\n")] = 0;
+        int input = atoi(choice);
+        
+        if(input == 1) {
+            player1.fear = 20;
+            player1.health = 100;
+            player1.body = 0;
+            player1.golds = 0;
+            system("clear");
+            fflush(stdout);
+            int counter = 0;
+            while(counter != 5){
+                counter++;
+                printf("[%s>%s] %s1 Les Profondeurs de la Forêt\n",CYN, WHT, GRN);
+                sleep_ms(200);
+                system("clear");
+                fflush(stdout);
+                printf("[%s>%s] %s1 Les Profondeurs de la Forêt\n", GRN, WHT, WHT);
+                sleep_ms(200);
+                system("clear");
+                fflush(stdout);
+                printf("[%s>%s] %s1 Les Profondeurs de la Forêt\n",CYN, WHT, GRN);
+                system("clear");
+                fflush(stdout);
+            }
+            enterToContinue();
+        
+            save_score(player1.name, player1.health, player1.fear, player1.body, player1.golds);
+            menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
+
+        }
+        else if(input == 2) {
+            printf("2");
+        }
+        else if(input == 3) {
+            printf("3");
+        }
+        else if(input == 1337){
+            system("cowsay Massi utilise ChatGPT");
+            enterToContinue();
+        }
+        else{
+            printf("Mauvais Choix");
+        }
+        system("clear");
+        fflush(stdout);
     }
-    else if(input == 2) {
-        printf("2");
-    }
-    else if(input == 3) {
-        printf("3");
-    }
-    else{
-        printf("Mauvais Choix");
-    }
+
+    
   
 
     return 0;

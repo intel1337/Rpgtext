@@ -1,4 +1,4 @@
-name : test
+name : tttt
 health :100
 fear :20
 body :0
