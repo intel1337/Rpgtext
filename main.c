@@ -34,14 +34,14 @@ void enterToContinue(){
 
 void introduction(){
     system("clear");
-    printf(RED);
+    printf(MAG);
     load_quete("intro.txt");
     printf(WHT);
     printf("> Appuyez Sur Entrée pour continuer...");
     getchar();
     fflush(stdout);
     system("clear");
-    printf(RED);
+    printf(MAG);
     load_quete("intro2.txt");
     printf("\n");
     printf(WHT);
@@ -110,8 +110,11 @@ int main(){
             save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body);
             menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
             enterToContinue();
+            system("clear");
+            fflush(stdout);
             load_quete("1.0.txt");
             player1.fear = 20;
+            printf("\n");
             menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
             printf("> Votre Choix : ");
             fgets(choice, 10, stdin);
@@ -119,6 +122,7 @@ int main(){
             int input = atoi(choice);
             if(input == 1){
                 enterToContinue();
+                break;
             }
 
 

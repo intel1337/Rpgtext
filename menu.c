@@ -39,7 +39,7 @@ void menu(int health, int golds, char* name, int body, int fear){
         while(i != 10){
             printf(WHT);
             printf("██");
-            sleep_ms(50);
+            sleep_ms(100);
             fflush(stdout);
             i++;
         }
@@ -58,7 +58,7 @@ void menu(int health, int golds, char* name, int body, int fear){
         while(i != 10){
             printf(WHT);
             printf("██");
-            sleep_ms(50);
+            sleep_ms(100);
             fflush(stdout);
             i++;
         }
