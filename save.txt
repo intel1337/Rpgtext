@@ -1,5 +1,6 @@
-name : tttt
+name : fdsfds
 health :100
-fear :20
-body :0
+fear :10
+status :0.000000
 golds : 0
+body :0

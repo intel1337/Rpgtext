@@ -61,7 +61,7 @@ int main(){
             int fear;
             int body;
             int golds;
-            float status
+            float status;
         };
         char choice[2];
         
@@ -83,7 +83,7 @@ int main(){
         int input = atoi(choice);
         
         if(input == 1) {
-            player1.fear = 20;
+            player1.fear = 10;
             player1.health = 100;
             player1.body = 0;
             player1.golds = 0;
@@ -92,6 +92,7 @@ int main(){
             int counter = 0;
             while(counter != 5){
                 counter++;
+                printf(WHT);
                 printf("[%s>%s] %s1 Les Profondeurs de la Forêt\n",CYN, WHT, GRN);
                 sleep_ms(200);
                 system("clear");
@@ -106,9 +107,20 @@ int main(){
             }
             enterToContinue();
         
-            save_score(player1.name, player1.health, player1.fear, player1.body, player1.golds, player1.status);
+            save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body);
             menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
-            
+            enterToContinue();
+            load_quete("1.0.txt");
+            player1.fear = 20;
+            menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
+            printf("> Votre Choix : ");
+            fgets(choice, 10, stdin);
+            choice[strcspn(choice, "\n")] = 0;
+            int input = atoi(choice);
+            if(input == 1){
+                enterToContinue();
+            }
+
 
         }
         else if(input == 2) {

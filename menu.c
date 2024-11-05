@@ -37,7 +37,8 @@ void menu(int health, int golds, char* name, int body, int fear){
     }
     if(health/10 != 10){
         while(i != 10){
-            printf("  ");
+            printf(WHT);
+            printf("██");
             sleep_ms(50);
             fflush(stdout);
             i++;
@@ -55,7 +56,8 @@ void menu(int health, int golds, char* name, int body, int fear){
     }
     if(fear/10 != 10){
         while(i != 10){
-            printf("  ");
+            printf(WHT);
+            printf("██");
             sleep_ms(50);
             fflush(stdout);
             i++;
