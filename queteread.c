@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+void sleep_ms(int milliseconds)
+{
+    // Convert milliseconds to microseconds
+    usleep(milliseconds * 1000);
+}
 void load_quete(char* fname) {
   
     FILE *file_ptr;
@@ -13,7 +18,7 @@ void load_quete(char* fname) {
     }
     while ((ch = fgetc(file_ptr)) != EOF) {
         printf("%c", ch);
-        sleep_ms(30);
+        sleep_ms(10);
         fflush(stdout);
     }
 
