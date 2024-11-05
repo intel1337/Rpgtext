@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-void sleep_ms(int milliseconds)
-{
-    // Convert milliseconds to microseconds
-    usleep(milliseconds * 1000);
-}
+
 void load_quete(char* fname) {
   
     FILE *file_ptr;

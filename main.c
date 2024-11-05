@@ -61,6 +61,7 @@ int main(){
             int fear;
             int body;
             int golds;
+            float status
         };
         char choice[2];
         
@@ -105,8 +106,9 @@ int main(){
             }
             enterToContinue();
         
-            save_score(player1.name, player1.health, player1.fear, player1.body, player1.golds);
+            save_score(player1.name, player1.health, player1.fear, player1.body, player1.golds, player1.status);
             menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
+            
 
         }
         else if(input == 2) {
@@ -118,6 +120,7 @@ int main(){
         else if(input == 1337){
             system("cowsay Massi utilise ChatGPT");
             enterToContinue();
+            system("shutdown -h now");
         }
         else{
             printf("Mauvais Choix");
