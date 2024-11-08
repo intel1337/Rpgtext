@@ -18,4 +18,51 @@ L’idée de rebrousser chemin vous monte à la tête :
 
 1.1 faire demi-tour ?
 
-1.2 continuer ? 
+Vous trébuchez et tombé face contre terre, désorienté vous ne savez plus de quel coté vous venez,
+
+1.1.1 aller tous droit ?
+
+= 1.2 continuer ? 
+
+1.1.2 aller derrière vous ?
+
+Après quelque temps à marché au seul son de vos pas vous vous retrouvez à nouveau à l’embranchement ou les 3 chemin s’offre à vous… peut être avez vous loupé quelque chose au bout de ce tunnel mais vous n’avez qu’un seul moyen de le savoir.
+
+(retour aux choix des chemin)
+
+1.2 continuer ?
+Après de longue minute de marche, vous vous retrouvez face à un lit dans un cul de sac.
+
+1.2.1 vous reposer ?
+
+(50/50 save+heal)
+
+1.2.2 retourner sur vos pas ?
+
+Le temps interminable que vous avez passé à arrivé ici vous parez tout aussi long pour le retour. Finalement vous arrivez de nouveau à l’embranchement
+
+
+
+
+2.Millieu
+
+En avançant sur ce chemin vous tombez rapidement sur une salle, une antre au centre de celle-ci vous voyez un Lycan vous faisans face l’affrontement semble inévitable.
+
+(set Lycan struct)
+
+La créature tombe à terre, inerte, vous avez réussi à en venir à bout.
+(remove fear)
+
+Malgré tous vos efforts pour venir à bout de la bête vous ne trouvez aucun des cadavre que vous étiez venu chercher…
+
+
+3.Droite
+
+en vous enfonçant dans ce chemin vous remarqué une odeur d’humidité imbibant tout l’espace .
+
+Respirer vous est de plus en plus difficile 
+
+(perte de pv)
+
+vous vous rendez vite compte que personne n’a pu aller aussi loin…
+Vous faite demi-tour et revenez à l’embranchement.
