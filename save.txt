@@ -1,0 +1,6 @@
+name : jiojo
+health :100
+fear :20
+status :1.0
+golds : 0
+body :0
