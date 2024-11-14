@@ -100,6 +100,7 @@ int main(){
             player1.health = 100;
             player1.body = 0;
             player1.golds = 0;
+            player1.status = "1.0";
         }
     } else {
         introduction();
@@ -113,6 +114,7 @@ int main(){
         player1.health = 100;
         player1.body = 0;
         player1.golds = 0;
+        player1.status = "1.0";
     }
 
 
@@ -364,5 +366,6 @@ int main(){
     }
     return 0;
 }
+
 
 
