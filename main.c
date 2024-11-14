@@ -52,59 +52,73 @@ void introduction(){
     system("clear");
 }
 
+
 int main(){
     char choice[2];
-    int visit1 = 0;
-    int visit2 = 0;
-    int visit3 = 0;
-    int visit1x1 = 0;
-    int visit1x2 = 0;
-    int visit1x3 = 0;
-    int visit2x1 = 0;
-    int visit2x2 = 0;
-    int visit2x3 = 0;
-    int visit3x1 = 0;
-    int visit3x2 = 0;
-    int visit3x3 = 0;
+    int visit1 = 0, visit2 = 0, visit3 = 0;
+    int visit1x1 = 0, visit1x2 = 0, visit1x3 = 0;
+    int visit2x1 = 0, visit2x2 = 0, visit2x3 = 0;
+    int visit3x1 = 0, visit3x2 = 0, visit3x3 = 0;
 
-    struct player
-        {
-            char name[20];
-            int health;
-            int fear;
-            int body;
-            int golds;
-            char* status;
-        };
-        struct player player1;
+    struct player {
+        char name[20];
+        int health;
+        int fear;
+        int body;
+        int golds;
+        char* status;
+    };
+    struct player player1;
 
-        struct ennemy
-        {
-            char name[20];
-            int health;
-            int fear;
-            int body;
-            int golds;
-            char* status;
-        };
-        struct ennemy lycan;
+    struct ennemy {
+        char name[20];
+        int health;
+        int fear;
+        int body;
+        int golds;
+        char* status;
+    };
+    struct ennemy lycan;
 
-    introduction();
-    printf("Vous choisissez un surnom pour ce périple\n");
-    printf("> Votre Choix: ");
+    if (fopen("save.txt", "r") != NULL) {
+        printf("Un fichier de sauvegarde est disponible. voulez vous l'utiliser ? (y/n)\n");
+        fgets(choice, 2, stdin);
+        getchar(); 
+        if (choice[0] == 'y' || choice[0] == 'Y') {
+         
+            printf("Loading save...\n");
+            load_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body);
+        } else {
+            introduction();
+            printf("Vous choisissez un surnom pour ce périple\n");
+            printf("> Votre Choix: ");
+            fgets(player1.name, 20, stdin);
+            strtok(player1.name, "\n");
+            system("clear");
 
-    fgets(player1.name, 20, stdin);
-    strtok(player1.name, "\n");
-    system("clear");
+            player1.fear = 10;
+            player1.health = 100;
+            player1.body = 0;
+            player1.golds = 0;
+        }
+    } else {
+        introduction();
+        printf("Vous choisissez un surnom pour ce périple\n");
+        printf("> Votre Choix: ");
+        fgets(player1.name, 20, stdin);
+        strtok(player1.name, "\n");
+        system("clear");
 
-    player1.fear = 10;
-    player1.health = 100;
-    player1.body = 0;
-    player1.golds = 0;
+        player1.fear = 10;
+        player1.health = 100;
+        player1.body = 0;
+        player1.golds = 0;
+    }
+
+
 
     while(1){
-
-        if(player1.health <= 0){
+        if(player1.health <= 0 || player1.fear == 100){
             system("clear");
             printf("Vous êtes mort.\n");
             printf("> Appuyez Sur Entrée pour continuer...");
@@ -112,20 +126,10 @@ int main(){
             fflush(stdout);
             system("clear");
             system("rm save.txt");
-            //system("shutdown -h now");
+            system("shutdown -h now");
         }
         
-        if(player1.fear==100){
-            system("clear");
-            printf("Vous êtes mort.\n");
-            printf("> Appuyez Sur Entrée pour continuer...");
-            getchar();
-            fflush(stdout);
-            system("clear");
-            system("rm save.txt");
-            //system("shutdown -h now");
-        }
-        if(player1.body==5){
+        if(player1.body == 5){
             system("clear");
             printf("Vous avez gagné.\n");
             printf("> Appuyez Sur Entrée pour continuer...");
@@ -135,7 +139,6 @@ int main(){
             exit(0);
         }
 
-    
         srand(time(NULL));
         system("clear");
 
@@ -295,7 +298,7 @@ int main(){
                     printf("SAUVEGARDE CORROMPUE.\n");
                     enterToContinue(); 
                     system("rm save.txt");
-                    //system("shutdown -h now");
+                    system("shutdown -h now");
                     visit2x1 = 1;
                     player1.status = "2.1";
                     continue;
@@ -339,7 +342,7 @@ int main(){
                     printf("SAUVEGARDE CORROMPUE.\n");
                     enterToContinue(); 
                     system("rm save.txt");
-                    //system("shutdown -h now");  
+                    system("shutdown -h now");  
                     continue;
                 }
             } else {
@@ -361,11 +364,5 @@ int main(){
     }
     return 0;
 }
-
-
-
-
-
-
 
 
