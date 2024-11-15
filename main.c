@@ -87,7 +87,7 @@ int main(){
         if (choice[0] == 'y' || choice[0] == 'Y') {
          
             printf("Loading save...\n");
-            load_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body);
+            load_score(&player1.name, &player1.health, &player1.fear, &player1.status, &player1.golds, &player1.body);
         } else {
             introduction();
             printf("Vous choisissez un surnom pour ce périple\n");
@@ -129,6 +129,7 @@ int main(){
             system("clear");
             system("rm save.txt");
             system("shutdown -h now");
+            break;
         }
         
         if(player1.body == 5){
@@ -243,6 +244,7 @@ int main(){
                     player1.status = "1.2.1";
                     player1.fear = 40;
                     visit1x2++;
+                    enterToContinue();
                 } else if(input == 2){
                     enterToContinue();
                     load_quete("1.2.2.txt");
@@ -250,6 +252,7 @@ int main(){
                     player1.fear = 20;
                     player1.health = 50;
                     visit1x2++;
+                    enterToContinue();
                 }
             } else if(input == 3 && visit1x3 == 0){
                 enterToContinue();
