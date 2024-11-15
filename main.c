@@ -244,7 +244,7 @@ int main(){
                     load_quete("1.2.1.txt");
                     player1.status = "1.2.1";
                     player1.fear = 40;
-                    visit1x2++;
+                    visit1x2 = 1;
                     enterToContinue();
                 } else if(input == 2){
                     enterToContinue();
@@ -252,7 +252,7 @@ int main(){
                     player1.status = "1.2.2";
                     player1.fear = 20;
                     player1.health = 50;
-                    visit1x2++;
+                    visit1x2=1;
                     enterToContinue();
                 }
             } else if(input == 3 && visit1x3 == 0){
@@ -303,9 +303,7 @@ int main(){
                     printf("Vous vous faites attraper depuis l'obscurité, vous sentez votre corps se démembrer lentement.\n");
                     printf("SAUVEGARDE CORROMPUE.\n");
                     enterToContinue(); 
-                    system("rm save.txt");
                     system("shutdown -h now");
-                    visit2x1 = 1;
                     player1.status = "2.1";
                     continue;
                 }
@@ -347,7 +345,6 @@ int main(){
                     enterToContinue();
                     printf("SAUVEGARDE CORROMPUE.\n");
                     enterToContinue(); 
-                    system("rm save.txt");
                     system("shutdown -h now");  
                     continue;
                 }
