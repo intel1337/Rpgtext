@@ -21,16 +21,16 @@ Haunted Realms is an immersive, dynamic, and user-friendly text-based RPG design
 
 ## Releases
 
-[[Download>]](https://link-url-here.org)
+[[Download>]](https://github.com/intel1337/rpgtext/releases/tag/Stable)
 
 ## Contribute
 
 We’re creating a thrilling, text-based horror RPG, and we need your skills! Whether you’re into coding, writing, or game design, your contribution can make a big impact.
 
 Why Join?
-	•	Shape a unique, dynamic horror game.
-	•	Collaborate and learn with a creative team.
-	•	Flexible roles for coders, writers, designers, and testers.
+•	Shape a unique, dynamic horror game.
+•	Collaborate and learn with a creative team.
+•	Flexible roles for coders, writers, designers, and testers.
 
 If you’re ready to create something terrifying, join us now!
 
