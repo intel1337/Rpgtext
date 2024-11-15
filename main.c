@@ -52,59 +52,75 @@ void introduction(){
     system("clear");
 }
 
+
 int main(){
     char choice[2];
-    int visit1 = 0;
-    int visit2 = 0;
-    int visit3 = 0;
-    int visit1x1 = 0;
-    int visit1x2 = 0;
-    int visit1x3 = 0;
-    int visit2x1 = 0;
-    int visit2x2 = 0;
-    int visit2x3 = 0;
-    int visit3x1 = 0;
-    int visit3x2 = 0;
-    int visit3x3 = 0;
+    int visit1 = 0, visit2 = 0, visit3 = 0;
+    int visit1x1 = 0, visit1x2 = 0, visit1x3 = 0;
+    int visit2x1 = 0, visit2x2 = 0, visit2x3 = 0;
 
-    struct player
-        {
-            char name[20];
-            int health;
-            int fear;
-            int body;
-            int golds;
-            char* status;
-        };
-        struct player player1;
 
-        struct ennemy
-        {
-            char name[20];
-            int health;
-            int fear;
-            int body;
-            int golds;
-            char* status;
-        };
-        struct ennemy lycan;
+    struct player {
+        char name[20];
+        int health;
+        int fear;
+        int body;
+        int golds;
+        char* status;
+    };
+    struct player player1;
 
-    introduction();
-    printf("Vous choisissez un surnom pour ce périple\n");
-    printf("> Votre Choix: ");
+    struct ennemy {
+        char name[20];
+        int health;
+        int fear;
+        int body;
+        int golds;
+        char* status;
+    };
+    struct ennemy lycan;
 
-    fgets(player1.name, 20, stdin);
-    strtok(player1.name, "\n");
-    system("clear");
+    if (fopen("save.txt", "r") != NULL) {
+        printf("Un fichier de sauvegarde est disponible. voulez vous l'utiliser ? (y/n)\n");
+        fgets(choice, 2, stdin);
+        getchar(); 
+        if (choice[0] == 'y' || choice[0] == 'Y') {
+         
+            printf("Loading save...\n");
+            load_score(player1.name, &player1.health, &player1.fear, &player1.status, &player1.golds, &player1.body, &visit1x1, &visit1x2, &visit1x3, &visit2x1, &visit2x2, &visit2x3);
+        } else {
+            introduction();
+            printf("Vous choisissez un surnom pour ce périple\n");
+            printf("> Votre Choix: ");
+            fgets(player1.name, 20, stdin);
+            strtok(player1.name, "\n");
+            system("clear");
 
-    player1.fear = 10;
-    player1.health = 100;
-    player1.body = 0;
-    player1.golds = 0;
+            player1.fear = 10;
+            player1.health = 100;
+            player1.body = 0;
+            player1.golds = 0;
+            player1.status = "1x0";
+        }
+    } else {
+        introduction();
+        printf("Vous choisissez un surnom pour ce périple\n");
+        printf("> Votre Choix: ");
+        fgets(player1.name, 20, stdin);
+        strtok(player1.name, "\n");
+        system("clear");
+
+        player1.fear = 10;
+        player1.health = 100;
+        player1.body = 0;
+        player1.golds = 0;
+        player1.status = "1x0";
+    }
+
+
 
     while(1){
-
-        if(player1.health <= 0){
+        if(player1.health <= 0 || player1.fear == 100){
             system("clear");
             printf("Vous êtes mort.\n");
             printf("> Appuyez Sur Entrée pour continuer...");
@@ -112,20 +128,11 @@ int main(){
             fflush(stdout);
             system("clear");
             system("rm save.txt");
-            //system("shutdown -h now");
+            system("shutdown -h now");
+            break;
         }
         
-        if(player1.fear==100){
-            system("clear");
-            printf("Vous êtes mort.\n");
-            printf("> Appuyez Sur Entrée pour continuer...");
-            getchar();
-            fflush(stdout);
-            system("clear");
-            system("rm save.txt");
-            //system("shutdown -h now");
-        }
-        if(player1.body==5){
+        if(player1.body == 5){
             system("clear");
             printf("Vous avez gagné.\n");
             printf("> Appuyez Sur Entrée pour continuer...");
@@ -135,7 +142,6 @@ int main(){
             exit(0);
         }
 
-    
         srand(time(NULL));
         system("clear");
 
@@ -149,7 +155,7 @@ int main(){
         int input = atoi(choice);
 
         if(input == 1 && visit1 == 0) {
-            player1.status = "1.0";
+            player1.status = "1x0";
             system("clear");
             fflush(stdout);
 
@@ -174,7 +180,7 @@ int main(){
             fflush(stdout);
 
             player1.fear = 20;
-            save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body);
+            save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
             menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
 
             enterToContinue();
@@ -193,7 +199,7 @@ int main(){
             if(input == 1 && visit1x1 == 0){
                 enterToContinue();
                 load_quete("1.1.txt");
-                player1.status = "1.1";
+                player1.status = "1x1";
                 player1.fear = 40;
                 printf("Lancez la pièce, 1 : Pile, 2 : Face\n");
                 menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
@@ -212,6 +218,7 @@ int main(){
                     enterToContinue();
                     fflush(stdout);
                     visit1x1 = 1;
+                    save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
                 } else {
                     load_quete("1.1l.txt");
                     player1.fear = 60;
@@ -221,11 +228,12 @@ int main(){
                     enterToContinue();
                     fflush(stdout); 
                     visit1x1 = 1;
+                    save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
                 }
             } else if(input == 2 && visit1x2 == 0){
                 enterToContinue();
                 load_quete("1.2.txt");
-                player1.status = "1.2";
+                player1.status = "1x2";
                 player1.fear = 40;
                 menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
                 printf("> Votre Choix : ");
@@ -235,28 +243,33 @@ int main(){
                 if(input == 1){
                     enterToContinue();
                     load_quete("1.2.1.txt");
-                    player1.status = "1.2.1";
+                    player1.status = "1x2";
                     player1.fear = 40;
-                    visit1x2++;
+                    visit1x2 = 1;
+                    save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
+                    enterToContinue();
                 } else if(input == 2){
                     enterToContinue();
                     load_quete("1.2.2.txt");
-                    player1.status = "1.2.2";
+                    player1.status = "1x2";
                     player1.fear = 20;
                     player1.health = 50;
-                    visit1x2++;
+                    visit1x2=1;
+                    save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
+                    enterToContinue();
                 }
             } else if(input == 3 && visit1x3 == 0){
                 enterToContinue();
                 load_quete("1.3.txt");
-                player1.status = "1.3";
+                player1.status = "1x3";
                 player1.fear = 40;
                 player1.body += 1;
                 menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
                 enterToContinue();
                 visit1x3 = 1;
+                save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
             } else {
-                printf("Tu as déja exploré ce chemin");
+                printf("Tu as déja exploré ce chemin\n");
                 enterToContinue();
                 fflush(stdout);
                 continue;
@@ -284,20 +297,20 @@ int main(){
                 if(input == random_number){
                     printf("Vous vous en sortez sans blessures\n");
                     printf("Jeu sauvegardé.\n");
-                    save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body);
+        
                     enterToContinue();
                     visit2x1 = 1;
-                    player1.status = "2.1";
+                    player1.status = "2x1";
                     player1.body += 1;
+                    save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
                     continue;
                 } else {
                     printf("Vous vous faites attraper depuis l'obscurité, vous sentez votre corps se démembrer lentement.\n");
                     printf("SAUVEGARDE CORROMPUE.\n");
                     enterToContinue(); 
+                    system("shutdown -h now");
                     system("rm save.txt");
-                    //system("shutdown -h now");
-                    visit2x1 = 1;
-                    player1.status = "2.1";
+                    player1.status = "2x1";
                     continue;
                 }
             } else if(input == 2 && visit2x2 == 0){
@@ -305,17 +318,19 @@ int main(){
                 load_quete("2.2.txt");
                 menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
                 visit2x2 = 1;
-                player1.status = "2.2";
+                player1.status = "2x2";
                 player1.body += 1;
+                save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
                 enterToContinue();
                 fflush(stdout);
+
                 continue;
             } else if(input == 3 && visit2x3 == 0){
                 enterToContinue();
                 load_quete("2.3.txt");
                 menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
                 visit2x3 = 1;
-                player1.status = "2.3";
+                player1.status = "2x3";
                 player1.body += 1;
                 enterToContinue();
                 fflush(stdout);
@@ -327,10 +342,10 @@ int main(){
                 int random_number = rand() % 2 + 1;
                 if(input == random_number){
                     printf("Jeu sauvegardé.\n");
-                    save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body);
+                                save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
                     enterToContinue();
                     visit2x3 = 1;
-                    player1.status = "2.3";
+                    player1.status = "2x3";
                     player1.body += 1;
                     continue;
                 } else {
@@ -338,12 +353,12 @@ int main(){
                     enterToContinue();
                     printf("SAUVEGARDE CORROMPUE.\n");
                     enterToContinue(); 
+                    system("shutdown -h now");  
                     system("rm save.txt");
-                    //system("shutdown -h now");  
                     continue;
                 }
             } else {
-                printf("Tu as déja exploré ce chemin");
+                printf("Tu as déja exploré ce chemin\n");
                 enterToContinue();
                 fflush(stdout);
                 continue;
@@ -352,6 +367,7 @@ int main(){
         
         if(input == 1337){
             system("cowsay Massi utilise ChatGPT");
+            save_score(player1.name, player1.health, player1.fear, player1.status, player1.golds, player1.body, visit1x1, visit1x2, visit1x3, visit2x1, visit2x2, visit2x3);
             enterToContinue();
         } else {
             printf("Mauvais Choix");
@@ -361,11 +377,6 @@ int main(){
     }
     return 0;
 }
-
-
-
-
-
 
 
 
