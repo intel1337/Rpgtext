@@ -1,10 +1,10 @@
-Face à vous ce trouve l’entré d’une grotte, humide, sombre, une odeur abominable s’en dégage. Vous allumez votre lampe torche et commencez à avancer.
+Face à vous se trouve l’entrée d’une grotte, humide, sombre, d’où émane une odeur abominable.
+Vous allumez votre lampe torche et commencez à avancer.
 
-Rapidement vous tombez sur une intersection.
+Rapidement, vous arrivez à une intersection.
 
-Deux choix s’offre à vous :
+Deux choix s’offrent à vous :
 
-1. A gauche :
+[>] 1. À gauche
 
-2. Millieu :
-
+[>] 2. Au milieu

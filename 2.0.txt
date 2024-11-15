@@ -1,13 +1,14 @@
 L’asile
 
-Un vieux bâtiment ce dresse en fasse de vous, la porte s’ouvre comme une invitation à entrer.
+Un vieux bâtiment se dresse face à vous. La porte s’ouvre lentement, comme une invitation à entrer.
 
-Une fois à l’intérieur il ne vous reste plus qu’une chose à faire fouillé l’intégralité du bâtiment.
+Une fois à l’intérieur, une seule tâche vous attend : fouiller l’intégralité du bâtiment.
 
-Ou voulez vous aller :
+Où voulez-vous aller ?
 
-> 1. Les chambres
+[>] 1. Les chambres
 
-> 2. Les cuisines
+[>] 2. Les cuisines
 
-> 3. Les installations médicales
+[>] 3. Les installations médicales
+

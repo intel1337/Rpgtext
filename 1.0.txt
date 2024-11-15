@@ -1,15 +1,15 @@
-Pas à pas vous vous enfoncez dans cette forêt aussi sombre et dense que dangereuse. Des bruits…
+Pas à pas, vous vous enfoncez dans cette forêt aussi sombre et dense que dangereuse. Des bruits…
 
-Ce silence assourdissant vous colle à la peau… que ce passe-t-il, ou sont les animaux. Tant de question vous trotte dans la tête,
-mais l’heure n’est pas à la frayeur vous devez continuer.
+Ce silence assourdissant vous colle à la peau. Que se passe-t-il ? Où sont les animaux ? Tant de questions vous trottent dans la tête,
+mais ce n’est pas le moment de céder à la frayeur. Vous devez continuer.
 
-Vos objectifs se trouve peut-être derrière le moindre tronc d’arbre, sous la moindre feuille, ou, dieu vous en préserve dans la tanière d’une bête.
+Vos objectifs se trouvent peut-être derrière le moindre tronc d’arbre, sous la moindre feuille, ou, dieu vous en préserve, dans la tanière d’une bête.
 
-Vous devez aller de l’avant mais par où commencer : 
-
+Vous devez aller de l’avant, mais par où commencer ?
 
 [>] 1. La clairière
 
 [>] 2. La grotte
 
-[>] 3. Les mémoriaux 
+[>] 3. Les mémoriaux
+
