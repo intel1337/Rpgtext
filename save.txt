@@ -1,6 +1,6 @@
-name : dfsqdsqdsq
+name : Taiyang
 health :100
 fear :20
 status :1.0
 golds : 0
-body :1
+body :4

@@ -87,7 +87,8 @@ int main(){
         if (choice[0] == 'y' || choice[0] == 'Y') {
          
             printf("Loading save...\n");
-            load_score(&player1.name, &player1.health, &player1.fear, &player1.status, &player1.golds, &player1.body);
+            load_score(player1.name, &player1.health, &player1.fear, &
+            player1.status, &player1.golds, &player1.body);
         } else {
             introduction();
             printf("Vous choisissez un surnom pour ce périple\n");
