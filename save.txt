@@ -1,6 +1,12 @@
-name : user
-health :100
-fear :20
-status :1.0
+name : test
+health : 80
+fear : 20
+status : 1x0
 golds : 0
-body :4
+body : 1
+visit1x1 : 1
+visit1x2 : 0
+visit1x3 : 0
+visit2x1 : 0
+visit2x2 : 0
+visit2x3 : 0
