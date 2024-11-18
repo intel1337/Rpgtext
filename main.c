@@ -54,6 +54,7 @@ void introduction(){
 
 
 int main(){
+    system("clear");
     char choice[2];
     int visit1 = 0, visit2 = 0, visit3 = 0;
     int visit1x1 = 0, visit1x2 = 0, visit1x3 = 0;
@@ -275,6 +276,22 @@ int main(){
                 continue;
             }
         } else if(input == 2) {
+            int counter = 0;
+            while(counter != 5){
+                counter++;
+                printf(WHT);
+                printf("[%s>%s] %s2 L'asile\n",CYN, WHT, GRN);
+                sleep_ms(200);
+                system("clear");
+                fflush(stdout);
+                printf("[%s>%s] %s2 L'asile\n", GRN, WHT, WHT);
+                sleep_ms(200);
+                system("clear");
+                fflush(stdout);
+                printf("[%s>%s] %s2 L'asile\n",CYN, WHT, GRN);
+                system("clear");
+                fflush(stdout);
+            }
             enterToContinue();
             load_quete("2.0.txt");
             menu(player1.health, player1.golds, player1.name, player1.body, player1.fear);
@@ -377,6 +394,7 @@ int main(){
     }
     return 0;
 }
+
 
 
 
